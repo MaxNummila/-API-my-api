@@ -1,0 +1,8 @@
+db.sqlite
+db.sqlite-wal
+db.sqlite-shm
+db_test.sqlite
+
+.env
+node_modules/
+My_API_Next_Steps_and_Testing.md
