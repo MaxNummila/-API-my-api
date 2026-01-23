@@ -4,8 +4,6 @@ const request = require("supertest");
 const fs = require("fs");
 const path = require("path");
 
-process.env.DB_FILE = "db_test.sqlite";
-
 const testDbPath = path.join(__dirname, "..", process.env.DB_FILE);
 if (fs.existsSync(testDbPath)) fs.unlinkSync(testDbPath);
 
