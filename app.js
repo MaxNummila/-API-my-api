@@ -3,23 +3,26 @@ const express = require("express");
 const { seedAdmin } = require("./data/users");
 const cookieParser = require("cookie-parser");
 
+// Imports for helmet and CORS
 const helmet = require("helmet");
 const cors = require("cors");
 
-// Imports for the different routes
-const authRoutes = require("./routes/auth");
-const productRoutes = require("./routes/products");
-const adminRoutes = require("./routes/admin");
+// Frontend at 5173 is now allowed to call 3000 and include cookies
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+}));
 
 // Calls the express function to make an app object
 const app = express();
 
 app.use(helmet());
 
-app.use(cors({
-    origin: "http://localhost:3000",
-    credentials: true,
-}));
+// Imports for the different routes
+const authRoutes = require("./routes/auth");
+const productRoutes = require("./routes/products");
+const adminRoutes = require("./routes/admin");
+
 
 // Adds middleware that checks incoming requests and parses the JSON in it and sets req.body to a JS object
 app.use(express.json());
