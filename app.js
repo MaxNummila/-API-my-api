@@ -16,6 +16,7 @@ app.use(cors({
 // Calls the express function to make an app object
 const app = express();
 
+// Make the app object use the helmet
 app.use(helmet());
 
 // Imports for the different routes
